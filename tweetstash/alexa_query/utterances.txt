@@ -1,7 +1,2 @@
-{
-  "intents": [
-    {
-      "intent": "QueryIntent"
-    }
-  ]
-}
+QueryIntent what is popular at the conference
+QueryIntent are people saying about the conference
