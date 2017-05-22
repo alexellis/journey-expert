@@ -8,10 +8,14 @@ functions:
     handler: ./incoming
     image: alexellis2/incoming
     environment:
-      es_url: "http://gateway:8080/function/func_echoit"
+      es_url: "http://elasticsearch:9200/tweet/event"
+
   alexa_query:
     lang: node
     handler: ./alexa_query
     image: alexellis2/alexa_query
-    
+    environment:
+      es_url: "http://elasticsearch:9200/tweet/event/_search?q=text:tester&sort=@timestamp:desc"
+
+#      es_url: "http://gateway:8080/function/func_echoit"
 

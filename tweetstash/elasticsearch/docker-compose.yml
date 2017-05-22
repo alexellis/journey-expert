@@ -18,10 +18,14 @@ services:
       resources:
         limits:
           memory: 1g
+    networks:
+      - func_functions
 volumes:
   esdata1:
     driver: local
-
+networks:
+  func_functions:
+    external: true
 #  capture:
 #    image: alexellis2/twitter_capture
  
