@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "response": {
+    "outputSpeech": {
+      "type": "PlainText",
+      "text": "This is what we could find out for you."
+    },
+    "shouldEndSession": true
+  },
+  "sessionAttributes": {
+  }
+}

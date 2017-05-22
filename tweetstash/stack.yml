@@ -1,0 +1,17 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  incoming:
+    lang: python
+    handler: ./incoming
+    image: alexellis2/incoming
+    environment:
+      es_url: "http://gateway:8080/function/func_echoit"
+  alexa_query:
+    lang: node
+    handler: ./alexa_query
+    image: alexellis2/alexa_query
+    
+
