@@ -23,7 +23,7 @@ services:
 
   capture:
     image: alexellis2/streaming_forwarder:latest
-    command: "node index.js docker"
+    command: "node index.js gluecon"
     secrets:
       - twitter_config.json
     environment:
