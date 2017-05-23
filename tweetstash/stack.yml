@@ -16,6 +16,10 @@ functions:
     image: alexellis2/alexa_query
     environment:
       es_url: "http://elasticsearch:9200/tweet/event/_search?q=text:docker&sort=@timestamp:desc"
+      filter_url: "http://gateway:8080/function/filter_string"
 
-#      es_url: "http://gateway:8080/function/func_echoit"
+  filter_string:
+    lang: python
+    handler: ./filter_string
+    image: alexellis2/filter_string
 

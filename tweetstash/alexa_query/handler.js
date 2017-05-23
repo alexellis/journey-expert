@@ -10,11 +10,25 @@ let handler = (req, callback) => {
     uri: process.env.es_url,
     json: true
   };
-  request.get(rq, (httpRes, err, body) => {
+  request.get(rq, (esErr, esRes, body) => {
     if(body.hits && body.hits.hits && body.hits.hits.length > 0) {
-      res.response.outputSpeech.text = "We found this - " + body.hits.hits[0]["_source"].text;    
+      let text = body.hits.hits[0]["_source"].text;
+      var filter = {
+        uri: process.env.filter_url,
+        json: false,
+        body: text
+      };
+
+      request.post(filter, (filterErr, filterRes, filteredText) => {     
+        if(filterErr) {
+          console.error(filterErr);
+        } else {
+          res.response.outputSpeech.text = filteredText;
+          callback(JSON.stringify(res));
+        }
+
+      });
     }
-    callback(JSON.stringify(res));
   });
 
 };

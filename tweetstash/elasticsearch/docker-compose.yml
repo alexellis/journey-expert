@@ -20,12 +20,31 @@ services:
           memory: 1g
     networks:
       - func_functions
+
+  capture:
+    image: alexellis2/streaming_forwarder:latest
+    command: "node index.js docker"
+    secrets:
+      - twitter_config.json
+    environment:
+      receiver_url: "http://gateway:8080/function/incoming"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 30s
+        max_attempts: 1
+        window: 120s
+    networks:
+      - func_functions
+
+secrets:
+  twitter_config.json:
+    file: ./streaming_forwarder/config.json
 volumes:
   esdata1:
     driver: local
 networks:
   func_functions:
     external: true
-#  capture:
-#    image: alexellis2/twitter_capture
- 
+
+
