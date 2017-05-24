@@ -1,2 +1,8 @@
 QueryIntent what is popular at the conference
-QueryIntent are people saying about the conference
+QueryIntent what people saying about the conference
+QueryIntent to give me the latest tweet
+QueryIntent to give me the latest status
+QueryIntent to give me the latest conference tweet
+CountIntent how many tweets have there been today
+CountIntent how many tweets about the conference have there been today
+CountIntent how much are people tweeting about the conference
