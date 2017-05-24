@@ -2,6 +2,9 @@
   "intents": [
     {
       "intent": "QueryIntent"
+    },
+    {
+      "intent": "CountIntent"
     }
   ]
 }
