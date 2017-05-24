@@ -31,9 +31,10 @@ let track = (hashtag) => {
     var posting = task.content.text +"\n @" + task.content.user.screen_name + " ("+task.content.user.location+") "+ task.content.user.lang;
     console.log(posting);
     
-    request.post(rq, (err,req, body) => {
+    request.post(rq, (err, result, body) => {
+
       if(err) {
-        console.error(err);
+        console.error(result.statusCode, result.headers, err);
       }
 
       done();
