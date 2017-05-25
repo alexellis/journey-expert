@@ -2,7 +2,7 @@
 
 * alexa_query	
 
-Node.js skill
+Node.js skill which reads Tweet data / statistics from Elastic Search (ES)
 
 * filter_string
 
